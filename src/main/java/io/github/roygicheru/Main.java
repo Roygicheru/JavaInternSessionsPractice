@@ -1,12 +1,9 @@
 package io.github.roygicheru;
 
-public class Main {
-    static void main() {
-        System.out.println("hello");
-//        IO.println("Hello and welcome!");
+import io.github.roygicheru.OOP.OOP1;
 
-        for (int i = 1; i <= 5; i++) {
-            IO.println("i = " + i);
-        }
+public class Main {
+    public static void main(String[] args) {
+        OOP1.practiceTask();
     }
 }
