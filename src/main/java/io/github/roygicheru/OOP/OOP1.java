@@ -13,6 +13,6 @@ public class OOP1 {
         prac.name = "John";
         prac2.age = 18;
         prac2.name = prac.name;
-        IO.println("Hello. "+prac2.name+"'s age 3 years ago was " + prac2.age + ", and now he's " + prac.age + " years old.");
+        IO.println("Hello. "+ prac2.name +"'s age 3 years ago was " + prac2.age + ", and now he's " + prac.age + " years old.");
     }
 }
