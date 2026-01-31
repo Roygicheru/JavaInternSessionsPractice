@@ -28,7 +28,6 @@ public class PolyAndAbsMain {
         party[2] = new Healer();
 
         System.out.println("======= BATTLE START =======");
-        System.out.println();
 
         for (GameCharacter character : party) {
             // Everyone can attack, because it's in the Parent Class
@@ -46,7 +45,7 @@ public class PolyAndAbsMain {
         GameCharacter myHero = new Warrior();
 
         // 2. Create the Backpack linked to THAT specific hero
-        // Notice the syntax: myHero.new Backpack() [cite: 407]
+        // Notice the syntax: myHero.new Backpack()
         GameCharacter.BackPack myPack = myHero.new BackPack();
 
         // 3. Use the backpack
