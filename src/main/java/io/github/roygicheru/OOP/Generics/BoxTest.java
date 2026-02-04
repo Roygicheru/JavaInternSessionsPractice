@@ -1,31 +1,36 @@
 package io.github.roygicheru.OOP.Generics;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class BoxTest {
+
+    public static double sumList(List<? extends Number> list){
+        double total = 0.0;
+        for(Number n : list){
+            total += n.doubleValue();
+        }
+        return total;
+    }
+
     public static void main(String[] args) {
-//        Box<String> myBox = new Box<>();
-//        myBox.add("Hello");
-//        myBox.add("123"); // Gives compile time errors
-//        System.out.println(myBox.get() + "\n");
-//
-//        Box<Integer> myBox2 = new Box<>();
-//        myBox2.add(88);
-//        System.out.println(myBox2.get() + "\n");
-//
-//        Pair<String, String> pair1 = new Pair<>();
-//        pair1.add("John", "He is my brother");
-//        System.out.println(pair1.getKey()+ ": " + pair1.getValue());
-//
-//        Pair<String, Integer> pair2 = new Pair<>();
-//        pair2.add("Alice", 95);
-//        System.out.println("Student: " + pair2.getKey()+ ", Grade: " + pair2.getValue());
+        List<Integer> intList = new ArrayList<>();
+        List<Double> doubleList = new ArrayList<>();
 
-        NumberBox<Double> numberBox = new NumberBox<>(18.22);
-        numberBox.printDouble();
+        intList.add(1000);
+        intList.add(2000);
+        intList.add(3000);
+        intList.add(4000);
+        double sum = sumList(intList);
+        System.out.println(sum);
 
-        NumberBox<Integer> numberBox2 = new NumberBox<>(44);
-        numberBox2.printDouble();
+        doubleList.add(1200.5);
+        doubleList.add(1300.5);
+        doubleList.add(1400.5);
+        doubleList.add(1500.5);
+        double sum2 = sumList(doubleList);
+        System.out.println(sum2);
 
-//        NumberBox<String> numberBox3 = new NumberBox<>(44); // Outputs error, incompatible with number parent class
-//        numberBox2.printDouble();
     }
 }
