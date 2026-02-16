@@ -1,0 +1,2 @@
+This is the modern way to write files in Java 17.
+New Log Entry at: 1771262998615
