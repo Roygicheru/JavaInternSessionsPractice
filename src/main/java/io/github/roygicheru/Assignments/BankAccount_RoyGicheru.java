@@ -35,6 +35,7 @@ public class BankAccount_RoyGicheru {
         }
     }
 
+    // Method to set balance
     public void setBalance(double balance) {
         if (balance >= 0) {
             this.balance = balance;
