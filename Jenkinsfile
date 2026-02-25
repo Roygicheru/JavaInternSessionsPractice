@@ -2,31 +2,27 @@ pipeline {
     agent any
 
     tools {
-        // This MUST match the name you gave Java in 'Manage Jenkins > Tools'
         jdk 'java-25'
+        maven 'maven-latest'
     }
 
     stages {
-        stage('Build & Test Assignments') {
-            // Jenkins will only run this if changes were made in your Assignments folder
-            when {
-                changeset "**/Assignments/**"
-            }
+        stage('Build & Test') {
+            when { changeset "**/Assignments/**" }
             steps {
-                echo 'Changes detected in Assignments. Running targeted tests...'
-
-                // This tells Maven to only run tests for your BankAccount code
                 sh 'mvn clean test -Dtest="io.github.roygicheru.Assignments.**"'
             }
         }
     }
 
     post {
-        success {
-            echo '✅ Success! BankAccount logic is verified.'
+        always {
+            // This is the magic line!
+            // It grabs the test results even if the build fails.
+            junit '**/target/surefire-reports/*.xml'
         }
-        failure {
-            echo '❌ Failure. Check the Console Output for Java errors.'
+        success {
+            echo '✅ Success! Logic verified.'
         }
     }
 }

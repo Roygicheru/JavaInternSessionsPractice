@@ -1,5 +1,6 @@
 /**
  * @author RoyGicheru
+ * This is a bank account task I did to simulate a few bank transactions
  */
 
 package io.github.roygicheru.Assignments;
