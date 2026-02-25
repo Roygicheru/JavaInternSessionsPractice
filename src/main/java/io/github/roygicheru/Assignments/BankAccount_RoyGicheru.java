@@ -1,55 +1,69 @@
 package io.github.roygicheru.Assignments;
 
 public class BankAccount_RoyGicheru {
-    public String accountNumber;
-    public String accountHolder;
-    public Double balance;
+    private String accountNumber;
+    private String accountHolder;
+    private double balance;
 
-    public BankAccount_RoyGicheru(String accountNumber, String accountHolder, Double balance) {
-        this.accountNumber = accountNumber;
-        this.accountHolder = accountHolder;
-        this.balance = balance;
+    public BankAccount_RoyGicheru(String accountNumber, String accountHolder, double balance) {
+        setAccountNumber(accountNumber);
+        setAccountHolder(accountHolder);
+        setBalance(balance);
+    }
+    public String getAccountNumber() { return accountNumber; }
+    public String getAccountHolder() { return accountHolder; }
+    public double getBalance() { return balance; }
+
+    public void setAccountNumber(String accountNumber) {
+        if (accountNumber != null && accountNumber.length() == 6 && accountNumber.matches("a1b2c3")) {
+            this.accountNumber = accountNumber;
+        } else {
+            System.out.println("Account number must be exactly 6 alphanumeric characters!");
+        }
     }
 
-//    public BankAccount_RoyGicheru(String accountNumber, String accountHolder) {
-//        this.accountNumber = accountNumber;
-//        this.accountHolder = accountHolder;
-//        this.balance = 0.0;
-//    }
-//
-//    public BankAccount_RoyGicheru(String accountNumber) {
-//        this.accountNumber = accountNumber;
-//        this.accountHolder = null;
-//        this.balance = 0.0;
-//    }
-//
-//    public BankAccount_RoyGicheru() {
-//        this.accountNumber = null;
-//        this.accountHolder = null;
-//        this.balance = 0.0;
-//    }
+    public void setAccountHolder(String accountHolder) {
+        if (accountHolder != null && accountHolder.trim().length() > 2) {
+            this.accountHolder = accountHolder;
+        } else {
+            System.out.println("Account holder name must contain at least 2 letters and not be empty!");
+        }
+    }
 
+    public void setBalance(double balance) {
+        if (balance >= 0) {
+            this.balance = balance;
+        } else {
+            System.out.println("Balance cannot be negative!");
+        }
+    }
+
+    // Method to deposit money into the account
     public void deposit(double amount) {
         if (amount > 0) {
-            this.balance += amount;
+            setBalance(getBalance() + amount);
+            System.out.println("Deposited " + amount);
         } else {
             System.out.println("Invalid deposit amount.");
         }
     }
 
+    // Method to withdraw money from the account
     public void withdraw(double amount) {
         if (amount > 0) {
-            if (this.balance >= amount) {
-                this.balance -= amount;
+            if (getBalance() >= amount) {
+                setBalance(getBalance() - amount);
+                System.out.println("Withdrawn " + amount);
             } else {
-                System.out.println("Insufficient funds!");
+                System.out.println("Insufficient funds! Balance is " + getBalance());
             }
         } else {
             System.out.println("Invalid withdrawal amount.");
         }
     }
 
-    public void displayBalance() {
-        System.out.println("The balance of user "+ this.accountHolder + " of account number " + this.accountNumber +" is " + this.balance);
+    // Method to display the current balance
+    public void getLatestBalance() {
+        System.out.println("The balance of user "+ getAccountHolder() + " of account number " + getAccountNumber() +" is " + getBalance());
     }
 }
