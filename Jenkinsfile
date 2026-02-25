@@ -23,7 +23,7 @@ pipeline {
 
     post {
         success {
-            echo '✅ Success! HabitHarvest logic is verified.'
+            echo '✅ Success! BankAccount logic is verified.'
         }
         failure {
             echo '❌ Failure. Check the Console Output for Java errors.'
