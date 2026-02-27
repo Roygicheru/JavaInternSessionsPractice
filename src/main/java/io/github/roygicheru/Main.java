@@ -1,15 +1,16 @@
 package io.github.roygicheru;
 
-import io.github.roygicheru.Assignments.BankAccount_RoyGicheru;
-import io.github.roygicheru.OOP.OOP1;
+import io.github.roygicheru.OOPAndOthers.OOP1;
+
+import java.util.Arrays;
+import java.util.List;
 //import io.github.roygicheru.Tasks.SessionTask1;
 
 public class Main {
     static void main() {
-        OOP1 practice = new OOP1();
-        practice.age = 10;
-        IO.println(practice.age);
-        practice.practiceTask();
+        List<String> list = Arrays.asList("Java", "Spring");
+        list.add("Cloud");
+        System.out.println(list.size());
 
 //        BankAccount_RoyGicheru bankAccount = new BankAccount_RoyGicheru("101000", "Roy Gicheru", 30000.0);
 //        bankAccount.deposit(20000);
